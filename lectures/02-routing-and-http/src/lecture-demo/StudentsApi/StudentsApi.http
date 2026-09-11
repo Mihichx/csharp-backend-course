@@ -1,0 +1,25 @@
+@host = http://localhost:5259
+
+### Получить всех студентов
+GET {{host}}/api/students
+
+### Фильтрация студентов по совпадению букв
+GET {{host}}/api/students?search=иван
+
+### Добавление студента (Успешно)
+POST {{host}}/api/students
+Content-Type: application/json
+
+"Петр Выхин"
+
+### Добавление студента (Ошибка 400)
+POST {{host}}/api/students
+Content-Type: application/json
+
+""
+
+### Удаление студента (Успешно)
+DELETE {{host}}/api/students?name=Иван Иванов
+
+### Удаление студента (Ошибка 404)
+DELETE {{host}}/api/students?name=Призрак
